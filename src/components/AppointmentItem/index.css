@@ -1,19 +1,19 @@
 /* Write your CSS here */
-.appointment-item{
-    display: flex;
-    flex-wrap: wrap;
+.appointment-item {
+  display: flex;
+  flex-wrap: wrap;
 }
-.appointment-container{
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    border: 1px solid #b5b7c4;
-    padding: 15px;
-    margin: 10px;
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 1px solid #b5b7c4;
+  padding: 15px;
+  margin: 10px;
 }
 
-.title-star-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.title-star-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
