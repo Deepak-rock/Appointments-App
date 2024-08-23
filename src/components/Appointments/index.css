@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin:64px 0 0 0;
+  margin: 64px 0 0 0;
 }
 .heading {
   color: #171f46;
@@ -159,14 +159,14 @@
     width: 45%;
     max-width: 320px;
   }
-  .title{
+  .title {
     font-size: 14px;
   }
   .image {
     display: block;
     width: 49%;
   }
-  .heading-starred-container  {
+  .heading-starred-container {
     padding: 0 12px;
   }
   .sub-heading {
