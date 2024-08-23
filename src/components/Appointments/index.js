@@ -80,11 +80,11 @@ class Appointments extends Component {
     const filterActive = isFilteredActive ? 'starred-full-btn' : 'starred-btn'
     return (
       <div className="app-container">
-        <div className="appointments-container">
-          <h1 className="heading">Add Appointment</h1>
-          <div className="input-container">
-            <form className="form" onSubmit={this.addAppointment}>
-              <div className="input-title-container">
+        <div className="responsive-container">
+          <div className="appointments-container">
+            <div className="input-container">
+              <form className="form" onSubmit={this.addAppointment}>
+                <h1 className="heading">Add Appointment</h1>
                 <label htmlFor="titleId" className="label">
                   TITLE
                 </label>
@@ -96,8 +96,6 @@ class Appointments extends Component {
                   onChange={this.onChangeTitle}
                   placeholder="Title"
                 />
-              </div>
-              <div className="input-date-container">
                 <label htmlFor="dateId" className="label">
                   DATE
                 </label>
@@ -108,33 +106,31 @@ class Appointments extends Component {
                   type="date"
                   onChange={this.onChangeDate}
                 />
-              </div>
-              <div className="add-button-container">
                 <button className="add-button" type="submit">
                   Add
                 </button>
-              </div>
-            </form>
-            <div className="image-container">
+              </form>
               <img
                 className="image"
                 src="https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png"
                 alt="appointments"
               />
             </div>
+            <hr className="line" />
+            <div className="heading-starred-container">
+              <h2 className="sub-heading">Appointments</h2>
+              <button
+                type="button"
+                className={filterActive}
+                onClick={this.onClickFilter}
+              >
+                Starred
+              </button>
+            </div>
+            <ul className="appointment-list">
+              {this.renderAppointmentsLists()}
+            </ul>
           </div>
-          <hr className="line" />
-          <div className="heading-starred-container">
-            <h2 className="sub-heading">Appointments</h2>
-            <button
-              type="button"
-              className={filterActive}
-              onClick={this.onClickFilter}
-            >
-              Starred
-            </button>
-          </div>
-          <ul className="appointment-list">{this.renderAppointmentsLists()}</ul>
         </div>
       </div>
     )

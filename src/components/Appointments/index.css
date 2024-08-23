@@ -1,76 +1,80 @@
 /* Write your CSS here */
-* {
-  margin: 0;
-}
 .app-container {
   background: linear-gradient(#9796f0, #fbc7d4);
   min-height: 100vh;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.responsive-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 85%;
+  border-radius: 15px;
+  max-width: 550px;
+}
+.appointments-container {
+  width: 86%;
+  max-width: 972px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.appointments-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  width: 90%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-}
-.heading {
-  margin: 30px 0;
-  color: #171f46;
-  font-family: 'Roboto';
-  font-size: 35px;
-  font-weight: bold;
-}
 .input-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  margin:64px 0 0 0;
 }
-.input-title-container {
+.heading {
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+}
+.form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .label {
-  margin: 5px 0;
+  margin: 0 0 8px 0;
   font-family: 'Roboto';
   color: #b5b7c4;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 12px;
 }
 .title {
-  margin-bottom: 10px;
-  border: 1px solid #b5b7c4;
+  border: 1px solid #7e858e;
   outline: none;
   padding: 8px 10px;
   border-radius: 5px;
   font-family: 'Roboto';
   color: #171f46;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-.input-date-container {
-  display: flex;
-  flex-direction: column;
+  font-size: 12px;
+  margin-bottom: 24px;
+  height: 40px;
 }
 .date {
-  margin-bottom: 10px;
-  border: 1px solid #b5b7c4;
+  border: 1px solid #7e858e;
   outline: none;
   padding: 8px 10px;
   border-radius: 5px;
   font-family: 'Roboto';
   color: #171f46;
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 12px;
+  margin-bottom: 24px;
+  height: 40px;
+  cursor: pointer;
 }
 .add-button {
-  padding: 5px 14px;
-  font-family: 16px;
+  align-self: flex-start;
+  padding: 7px 16px;
+  font-family: 12px;
   font-family: 'Roboto';
   color: #ffffff;
   font-size: 16px;
@@ -78,19 +82,28 @@
   border: none;
   outline: none;
   background-color: #8b5cf6;
-  margin: 10px 0 30px 0;
-}
-.line {
-  margin: 20px 0;
+  cursor: pointer;
 }
 .image {
   display: none;
+}
+.line {
+  border: 1px solid #b5b7c4;
+  width: 100%;
+  margin: 25px 0 32px 0;
 }
 .heading-starred-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  align-self: stretch;
+}
+.sub-heading {
+  margin: 0;
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 500;
 }
 .starred-btn {
   background-color: transparent;
@@ -100,12 +113,14 @@
   border: 1px solid #8b5cf6;
   outline: none;
   transition: 0.8s;
-  margin: 0 15px 0 0;
+  margin: 0;
+  cursor: pointer;
 }
 .starred-btn:hover {
   border: none;
   background-color: #9796f0;
   color: #ffffff;
+  cursor: pointer;
 }
 .starred-full-btn {
   background-color: #9796f0;
@@ -115,45 +130,50 @@
   border: 1px solid #8b5cf6;
   outline: none;
   transition: 0.8s;
-  margin: 0 15px 0 0;
+  margin: 0;
+  cursor: pointer;
 }
 .starred-full-btn:hover {
   border: 1px solid #8b5cf6;
   background-color: #ffffff;
   color: #8b5cf6;
-}
-.sub-heading {
-  margin: 30px 0 30px 15px;
-  color: #171f46;
-  font-family: 'Roboto';
-  font-size: 30px;
-  font-weight: bold;
+  cursor: pointer;
 }
 .appointment-list {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 0 0;
   padding: 0;
   list-style: none;
 }
 @media screen and (min-width: 768px) {
-  .input-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .responsive-container {
+    width: 78%;
+    max-width: 1120px;
   }
-  .image-container {
-    width: 60%;
+  .heading {
+    font-size: 32px;
+    margin: 0 0 48px 0;
   }
-  .title {
-    width: 120%;
+  .form {
+    width: 45%;
+    max-width: 320px;
   }
-  .date {
-    width: 120%;
+  .title{
+    font-size: 14px;
   }
   .image {
     display: block;
-    width: 95%;
+    width: 49%;
+  }
+  .heading-starred-container  {
+    padding: 0 12px;
+  }
+  .sub-heading {
+    font-size: 24px;
   }
   .appointment-list {
-    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

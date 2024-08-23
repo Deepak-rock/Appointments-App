@@ -1,41 +1,56 @@
 /* Write your CSS here */
 .appointment-item {
-  width: 100%;
-}
-.appointment-container {
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
+  list-style-type: none;
   border: 1px solid #b5b7c4;
-  padding: 15px;
-  margin: 10px;
+  border-radius: 15px;
+  margin: 0 0 16px 0;
+  padding: 16px;
 }
 .title-star-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .title-text {
-  margin: 10px 0;
+  margin: 0;
   color: #171f46;
   font-family: 'Roboto';
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
 }
 .star-button {
   border: none;
   outline: none;
   background-color: transparent;
+  padding: 0;
+  cursor: pointer;
 }
 .star-image {
-  width: 25px;
-  height: 25px;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .date-text {
-  margin: 5px 0;
+  margin: 0;
   font-family: 'Roboto';
-  color: #b5b7c4;
-  font-size: 14px;
+  color: #7e858e;
+  font-size: 12px;
 }
 @media screen and (min-width: 768px) {
+  .appointment-item{
+    margin: 0 12px 32px 12px;
+    min-width: 297px;
+  }
+  .star-image {
+    width: 24px;
+    height: 24px;
+  }
+  .date-text{
+    font-size: 16px;
+  } 
 }

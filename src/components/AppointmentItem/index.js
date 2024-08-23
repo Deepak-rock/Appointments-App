@@ -12,20 +12,18 @@ const AppointmentItem = props => {
   }
   return (
     <li className="appointment-item">
-      <div className="appointment-container">
-        <div className="title-star-container">
-          <p className="title-text">{title}</p>
-          <button
-            type="button"
-            className="star-button"
-            onClick={onClickToggle}
-            data-testid="star"
-          >
-            <img className="star-image" src={starImageurl} alt="star" />
-          </button>
-        </div>
-        <p className="date-text">Date: {date}</p>
+      <div className="title-star-container">
+        <p className="title-text">{title}</p>
+        <button
+          type="button"
+          className="star-button"
+          onClick={onClickToggle}
+          data-testid="star"
+        >
+          <img className="star-image" src={starImageurl} alt="star" />
+        </button>
       </div>
+      <p className="date-text">Date: {date}</p>
     </li>
   )
 }
