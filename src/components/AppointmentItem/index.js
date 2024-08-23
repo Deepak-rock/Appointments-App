@@ -2,23 +2,29 @@
 import './index.css'
 
 const AppointmentItem = props => {
-  const {appointmentDetails} = props
-  const {title, date} = appointmentDetails
-
+  const {appointmentDetails, toggleStar} = props
+  const {id, title, date, isActive} = appointmentDetails
+  const starImageurl = !isActive
+    ? 'https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png'
+    : 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
+  const onClickToggle = () => {
+    toggleStar(id)
+  }
   return (
     <li className="appointment-item">
       <div className="appointment-container">
         <div className="title-star-container">
-          <p>{title}</p>
-          <button type="button">
-            <img
-              className="star-image"
-              src="https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png"
-              alt="star"
-            />
+          <p className="title-text">{title}</p>
+          <button
+            type="button"
+            className="star-button"
+            onClick={onClickToggle}
+            data-testid="star"
+          >
+            <img className="star-image" src={starImageurl} alt="star" />
           </button>
         </div>
-        <p>{date}</p>
+        <p className="date-text">Date: {date}</p>
       </div>
     </li>
   )

@@ -5,15 +5,12 @@ import {v4 as uuidv4} from 'uuid'
 import AppointmentItem from '../AppointmentItem/index'
 import './index.css'
 
-/* const date = format(new Date(), 'dd MMMM yyyy, EEEE')
-console.log(date)
-console.log(typeof date) */
-
 class Appointments extends Component {
   state = {
     inputTitle: '',
     inputDate: '',
     appointmentsList: [],
+    isFilteredActive: false,
   }
 
   onChangeTitle = event => {
@@ -24,6 +21,32 @@ class Appointments extends Component {
     this.setState({inputDate: event.target.value})
   }
 
+  toggleStar = id => {
+    this.setState(prevState => ({
+      appointmentsList: prevState.appointmentsList.map(eachDetial => {
+        if (eachDetial.id === id) {
+          return {...eachDetial, isActive: !eachDetial.isActive}
+        }
+        return eachDetial
+      }),
+    }))
+  }
+
+  onClickFilter = () => {
+    const {isFilteredActive} = this.state
+    this.setState({isFilteredActive: !isFilteredActive})
+  }
+
+  getStarredlist = () => {
+    const {appointmentsList, isFilteredActive} = this.state
+    if (isFilteredActive) {
+      return appointmentsList.filter(
+        appointmentsStarredList => appointmentsStarredList.isActive === true,
+      )
+    }
+    return appointmentsList
+  }
+
   addAppointment = event => {
     event.preventDefault()
     const {inputTitle, inputDate} = this.state
@@ -31,6 +54,7 @@ class Appointments extends Component {
       id: uuidv4(),
       title: inputTitle,
       date: format(new Date(inputDate), 'dd MMMM yyyy, EEEE'),
+      isActive: false,
     }
     this.setState(prevState => ({
       appointmentsList: [...prevState.appointmentsList, newAppointmentList],
@@ -40,17 +64,20 @@ class Appointments extends Component {
   }
 
   renderAppointmentsLists = () => {
-    const {appointmentsList} = this.state
-    return appointmentsList.map(eachAppointment => (
+    const filteredStarredlist = this.getStarredlist()
+    return filteredStarredlist.map(eachAppointment => (
       <AppointmentItem
         key={eachAppointment.id}
         appointmentDetails={eachAppointment}
+        toggleStar={this.toggleStar}
       />
     ))
   }
 
   render() {
-    const {inputTitle, inputDate} = this.state
+    const {inputTitle, inputDate, isFilteredActive} = this.state
+    console.log(isFilteredActive)
+    const filterActive = isFilteredActive ? 'starred-full-btn' : 'starred-btn'
     return (
       <div className="app-container">
         <div className="appointments-container">
@@ -67,6 +94,7 @@ class Appointments extends Component {
                   value={inputTitle}
                   type="text"
                   onChange={this.onChangeTitle}
+                  placeholder="Title"
                 />
               </div>
               <div className="input-date-container">
@@ -98,7 +126,11 @@ class Appointments extends Component {
           <hr className="line" />
           <div className="heading-starred-container">
             <h2 className="sub-heading">Appointments</h2>
-            <button type="button" className="starred-btn">
+            <button
+              type="button"
+              className={filterActive}
+              onClick={this.onClickFilter}
+            >
               Starred
             </button>
           </div>

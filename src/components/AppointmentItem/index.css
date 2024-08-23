@@ -1,7 +1,6 @@
 /* Write your CSS here */
 .appointment-item {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
 }
 .appointment-container {
   display: flex;
@@ -11,9 +10,32 @@
   padding: 15px;
   margin: 10px;
 }
-
 .title-star-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.title-text {
+  margin: 10px 0;
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: bold;
+}
+.star-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.star-image {
+  width: 25px;
+  height: 25px;
+}
+.date-text {
+  margin: 5px 0;
+  font-family: 'Roboto';
+  color: #b5b7c4;
+  font-size: 14px;
+}
+@media screen and (min-width: 768px) {
 }
